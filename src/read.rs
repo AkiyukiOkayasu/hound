@@ -1347,6 +1347,7 @@ fn read_as_i32_should_equal_read_as_f32() {
         .unwrap()
         .samples::<f32>()
         .map(Result::unwrap)
+        .map(|x| x * 128.0f32)
         .collect();
     for (&sample_i32, &sample_f32) in samples_i32.iter().zip(&samples_f32) {
         assert_eq!(sample_i32, sample_f32 as i32);
@@ -1362,6 +1363,7 @@ fn read_as_i32_should_equal_read_as_f32() {
         .unwrap()
         .samples::<f32>()
         .map(Result::unwrap)
+        .map(|x| x * 32768.0f32)
         .collect();
     for (&sample_i32, &sample_f32) in samples_i32.iter().zip(&samples_f32) {
         assert_eq!(sample_i32, sample_f32 as i32);
@@ -1377,6 +1379,7 @@ fn read_as_i32_should_equal_read_as_f32() {
         .unwrap()
         .samples::<f32>()
         .map(Result::unwrap)
+        .map(|x| x * 8388608.0f32)
         .collect();
     for (&sample_i32, &sample_f32) in samples_i32.iter().zip(&samples_f32) {
         assert_eq!(sample_i32, sample_f32 as i32);
